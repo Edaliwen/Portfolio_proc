@@ -19,3 +19,6 @@
             - telephone
             - message
 
+## Création de l'architecture
+
+Création de l'arborescence des dossiers et fichiers
