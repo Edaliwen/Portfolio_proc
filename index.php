@@ -11,7 +11,9 @@
 ?>
 
     <main class="container">
-
+    <?php
+        echo $_SESSION["message"];
+    ?> 
     </main>
 
 <?php

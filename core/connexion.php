@@ -10,10 +10,10 @@
         $bdd = "portfolio";
     }else{
         // à remplir avec les données fournies par votre hébergeur
-        $host = "";
-        $user = "";
+        $host = "localhost";
+        $user = "root";
         $password = "";
-        $bdd = "";
+        $bdd = "portfolio";
     }
     // mise en place de la connexion vers la bdd
     $connexion = mysqli_connect($host, $user, $password, $bdd);

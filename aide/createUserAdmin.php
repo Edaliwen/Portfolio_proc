@@ -18,15 +18,18 @@
                 <input type="text" class="form-control mt-3" name ="prenom" placeholder="Votre prénom">
                 <input type="text" class="form-control mt-3" name ="email" placeholder="Votre adresse email">
                 <input type="text" class="form-control mt-3" name ="password" placeholder="Votre mot de passe">
-                <button class="btn btn-outline-warning mt-3">Enregistrer</button>
+                <button type = "submit" name = "submit" class="btn btn-outline-warning mt-3">Enregistrer</button>
             </form>
             <?php
                 // on récupère le fichier de connexion
                 require("../core/connexion.php");
+                // 1 - Récupération des données et formatage
                 /* une condition pour recupérer les données transmises par le formulaire et formater correctement le texte
                 addslashes() rajoute un \ pour échapper les caractères spéciaux dans la saisie
                 */
-                if (isset($_POST["soumettre"])){
+
+                var_dump($_POST);
+                if (isset($_POST["submit"])){
                     $nom = addslashes(trim(ucfirst($_POST["nom"])));
                     $prenom = addslashes(trim(ucfirst($_POST["prenom"])));
                     // strtolower permet de tout mettre en minuscules
@@ -35,6 +38,46 @@
                     $options = ['cost' => 12];
                     $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT, $options);
                     $role = 1;
+
+                    // 2 - Préparation de l'instruction SQL
+                    /* $sql = 'INSERT INTO table_user (
+                                                        nom,
+                                                        prenom,
+                                                        email,
+                                                        password,
+                                                        role
+                                                    )
+                            VALUE (
+                                    "' . $nom .'",
+                                    "' . $prenom .'",
+                                    "' . $email .'",
+                                    "' . $password .'",
+                                    "' . $role .'"
+                            )';
+                            */
+                    $sql = " INSERT INTO table_user (
+                                                    nom,
+                                                    prenom, 
+                                                    email,
+                                                    password,
+                                                    role
+                                                )
+                            VALUE (
+                                        '$nom',
+                                        '$prenom',
+                                        '$email',
+                                        '$password',
+                                        '$role'
+                                    )";
+
+                    // 3 - Exécution de la requête avec les paramètres de connexion
+                    mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
+
+                    // 4 - Message
+                    $_SESSION["message"] = "Administrateur $prenom $nom bien enregistré dans la base de données.";
+
+                    // 5 - Redirection vers la page d'accueil
+                    header('Location: http://localhost/la_manu/sitePhpProcedural/index.php');
                 }
             ?>
         </div>
