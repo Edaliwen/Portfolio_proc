@@ -18,6 +18,6 @@
     // mise en place de la connexion vers la bdd
     $connexion = mysqli_connect($host, $user, $password, $bdd);
     // passage des retours de requêtes au format d'encodage UTF-8
-    mysqli_query($connexion, "SET NAMES 'utf-8'");
+    mysqli_query($connexion, "SET NAMES 'utf8'");
 
 ?>
