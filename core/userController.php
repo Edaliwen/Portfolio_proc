@@ -14,6 +14,8 @@
         case "log-admin":
             logAdmin();
             break;
+        case "log-out":
+
         endswitch;
 
     // les différentes fonctions de notre controller 
@@ -24,7 +26,7 @@
         // vérification de l'email de l'admin qui est une valeur unique, préparation des données et formatage
         $login = trim(strtolower($_POST["login"]));
         // écriture SQL (Read du CRUD)
-        $sql = "SELECT * FROM user WHERE email = '$login'";
+        $sql = "SELECT * FROM table_user WHERE email = '$login'";
         // exécution de la requête
         $query = mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
         // traitement des données
@@ -39,14 +41,14 @@
                 if($user["role"] != 1){
                     // on envoie un message d'alerte
                     $_SESSION["message"] = "Vous n'êtes pas l'administrateur";
-                    header('Location: http://localhost/la_manu/sitePhpProcedural/index.php');
+                    header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
                     exit;
                 }else{
                     // on créé plusieurs variables de session qui permettent un affichage personne et de sécuriser l'accès au back-office
                     $_SESSION["prenom"] = $user["prenom"] ;
                     $_SESSION["isLogged"] = true;
                     $_SESSION["role"] = $user["role"];
-                    header('Location: http://localhost/la_manu/sitePhpProcedural/admin/accueilAdmin.php');
+                    header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
                     exit;
                 }
             }else{
@@ -56,8 +58,19 @@
             }
         }else{
             $_SESSION["message"] = "Désolé, pas d'administrateur identifié";
-            header('Location: http://localhost/la_manu/admin/index.php');
+            header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
             exit;
         }
+    }
+    function logOut(){
+        // pour déconnecter l'admin, il faut supprimer les variables de session
+        // on détruit la session avec session_destroy()
+        session_destroy();
+        session_start();
+        // message flash
+        $_SESSION["message"] = "Vous êtes déconnecté !";
+        // redirection vers page d'accueil du site
+        header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
+        exit;
     }
 ?>

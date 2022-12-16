@@ -9,6 +9,16 @@
 ?>
 <main>
     <div class="container">
+        <!-- gestion de l'affichage des messages -->
+        <div class="row justify-content-center">
+            <?php 
+                if(isset($_SESSION["message"])){
+                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">' . $_SESSION["message"] . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                    // on efface la clé message une fois qu'elle a été affichée
+                    unset($_SERVER["message"]);
+                }
+            ?>
+        </div>
         <div class="row justify-content-center">
             <div class="col-4">
                 <form class ="form-group" action="../core/userController.php" method="post">
