@@ -15,7 +15,7 @@
                     <input type="hidden" class="form-control mt-3" name="execute" value="log-admin"></input>
                     <input class="form-control mt-3" type="email" name="login" placeholder="Votre email"></input>
                     <input class="form-control mt-3" type="password" name="password" placeholder="Votre mot de passe"></input>
-                    <button class="btn btn-outline-warning mt-3" type="submit" name="submit"></button>
+                    <button class="btn btn-outline-warning mt-3" type="submit" name="submit">Se connecter</button>
                 </form>
             </div>
         </div>
