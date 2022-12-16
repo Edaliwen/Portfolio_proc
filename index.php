@@ -12,7 +12,15 @@
 
     <main class="container">
     <?php
-        echo $_SESSION["message"];
+        if (isset($_SESSION["message"])){
+            echo $_SESSION["message"];
+            echo "<pre>";
+            echo var_dump($_SESSION);
+            echo "</pre>";
+        }
+        echo "<pre>";
+        echo var_dump($_SESSION);
+        echo "</pre>";
     ?> 
     </main>
 
