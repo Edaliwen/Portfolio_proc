@@ -15,7 +15,7 @@
             logAdmin();
             break;
         case "log-out":
-
+            logOut();
         endswitch;
 
     // les différentes fonctions de notre controller 
@@ -48,7 +48,7 @@
                     $_SESSION["prenom"] = $user["prenom"] ;
                     $_SESSION["isLogged"] = true;
                     $_SESSION["role"] = $user["role"];
-                    header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
+                    header('Location: http://localhost/la_manu/sitePhpProcedural/admin/accueilAdmin.php');
                     exit;
                 }
             }else{

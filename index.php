@@ -13,9 +13,6 @@
     <?php
         if (isset($_SESSION["message"])){
             echo $_SESSION["message"];
-            echo "<pre>";
-            echo var_dump($_SESSION);
-            echo "</pre>";
         }
         echo "<pre>";
         echo var_dump($_SESSION);

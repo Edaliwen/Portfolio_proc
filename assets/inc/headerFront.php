@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                <a class="nav-link active" aria-current="page" href="http://localhost/la_manu/sitePhpProcedural/">Accueil</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">Messagerie</a>
@@ -19,7 +19,7 @@
                 <a class="nav-link" href="#">Pricing</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link" href="http://localhost/la_manu/sitePhpProcedural/admin/">Connexion</a>
                 </li>
             </ul>
             </div>
