@@ -41,7 +41,7 @@
                 if($user["role"] != 1){
                     // on envoie un message d'alerte
                     $_SESSION["message"] = "Vous n'êtes pas l'administrateur";
-                    header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
+                    header('Location: http://localhost/la_manu/sitePhpProcedural/admin/');
                     exit;
                 }else{
                     // on créé plusieurs variables de session qui permettent un affichage personne et de sécuriser l'accès au back-office
@@ -53,12 +53,12 @@
                 }
             }else{
                 $_SESSION["message"] = "Erreur de mot de passe !!!";
-                header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
+                header('Location: http://localhost/la_manu/sitePhpProcedural/admin/');
                 exit;
             }
         }else{
             $_SESSION["message"] = "Désolé, pas d'administrateur identifié";
-            header('Location: http://localhost/la_manu/sitePhpProcedural/admin/index.php');
+            header('Location: http://localhost/la_manu/sitePhpProcedural/admin/');
             exit;
         }
     }

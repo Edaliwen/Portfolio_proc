@@ -40,21 +40,6 @@
                     $role = 1;
 
                     // 2 - Préparation de l'instruction SQL
-                    /* $sql = 'INSERT INTO table_user (
-                                                        nom,
-                                                        prenom,
-                                                        email,
-                                                        password,
-                                                        role
-                                                    )
-                            VALUE (
-                                    "' . $nom .'",
-                                    "' . $prenom .'",
-                                    "' . $email .'",
-                                    "' . $password .'",
-                                    "' . $role .'"
-                            )';
-                            */
                     $sql = " INSERT INTO table_user (
                                                     nom,
                                                     prenom, 

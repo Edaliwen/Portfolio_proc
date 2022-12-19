@@ -10,14 +10,16 @@
 ?>
 
     <main class="container">
-    <?php
-        if (isset($_SESSION["message"])){
-            echo $_SESSION["message"];
+    <?php 
+        if(!$_SESSION) {
+            unset($_SESSION["message"]);
         }
-        echo "<pre>";
-        echo var_dump($_SESSION);
-        echo "</pre>";
-    ?> 
+        if(isset($_SESSION["message"])){
+            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">' . $_SESSION["message"] . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+            // on efface la clé message une fois qu'elle a été affichée
+            unset($_SESSION["message"]);
+        }
+    ?>
     </main>
 
 <?php

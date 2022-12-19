@@ -8,7 +8,7 @@
     include("../assets/inc/headerFront.php");
 ?>
 <main>
-    <div class="container">
+    <div class="container mt-3">
         <!-- gestion de l'affichage des messages -->
         <div class="row justify-content-center">
             <?php 
