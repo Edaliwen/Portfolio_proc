@@ -35,7 +35,7 @@
 ## Création de l'architecture
 
 - [ ] Création de l'arborescence des dossiers et fichiers
-- [ ] Création de la table user dans la bdd portfolion
-- [ ] Création du dossier et fichier aide/createUserAdmin.php
+- [x] Création de la table user dans la bdd portfolion
+- [x] Création du dossier et fichier aide/createUserAdmin.php
     - ce fichier va nous permettre de créer un formulaire pour enregistrer un administrateur qui aura accès au back-office (console d'administration) de notre site
-- [ ] Création d'une barre de navigation dans le fichier assets/inc/headerFront.php
+- [x] Création d'une barre de navigation dans le fichier assets/inc/headerFront.php
