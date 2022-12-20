@@ -20,17 +20,37 @@
     $query = mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
 
     $users = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-    echo '<pre>';
-    var_dump($users);
-    echo '</pre>';
 ?>
 <main>
     <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-8 mt-5">
-            <h4>Bienvenue dans la console d'administration <?=$_SESSION["prenom"] ?></h4>
+        <div class="row text-white text-center my-3">
+            <h1>Liste des utilisateurs</h1>
         </div>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Rôle</th>
+            </tr>
+            <?php
+        foreach($users as $user){
+            echo '<tr>';
+            echo '<th scope="row">' . $user["id_user"] . '</th>';
+            echo '<td>' . $user["nom"] . '</td>';
+            echo '<td>' . $user["prenom"] . '</td>';
+            echo '<td>' . $user["email"] . '</td>';
+            if($user["role"] == true){
+                echo '<td>Administrateur</td>';
+            }else{
+                echo '<td>Utilisateur</td>';
+            }
+            echo '</tr>';
+        }
+        ?>
+        </table>
+    </div>
 </main>
 
 <?php
