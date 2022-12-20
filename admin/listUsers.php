@@ -50,6 +50,7 @@
         }
         ?>
         </table>
+        <a class="btn btn-outline-light" href="http://localhost/la_manu/sitePhpProcedural/admin/createUser.php">Ajouter un utilisateur</a>
     </div>
 </main>
 

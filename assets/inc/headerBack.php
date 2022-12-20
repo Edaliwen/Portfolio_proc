@@ -15,7 +15,7 @@
                             <a class="nav-link active" aria-current="page" href="http://localhost/la_manu/sitePhpProcedural/admin/">Accueil administrateur</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/la_manu/sitePhpProcedural/admin/createUser.php">Gestion des utilisateurs</a>
+                            <a class="nav-link" href="http://localhost/la_manu/sitePhpProcedural/admin/listUsers.php">Gestion des utilisateurs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Gestion des compétences</a>
@@ -25,7 +25,7 @@
                         </li>
                     </ul>
                 <form class ="form-group" action="../core/userController.php" method="post">
-                <button class="btn btn-outline-warning mt-3" type="submit" name="execute" value="log-out">Se déconnecter</button>
+                <button class="btn btn-outline-danger mt-3" type="submit" name="execute" value="log-out">Se déconnecter</button>
                 </form>
                 </div>
             </div>

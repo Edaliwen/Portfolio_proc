@@ -3,14 +3,14 @@
     Pour cela on créé un formulaire pour renseigner la bdd.
     Au niveau du CRUD nous allons faire un create avec l'instruction ** SQL INSERT INTO **
     */
-include("../assets/inc/headFront.php");
+include("../assets/inc/headBack.php");
 ?>
 <title>Création de l'utilisateur Admin</title>
 <?php
-include("../assets/inc/headerFront.php");
+include("../assets/inc/headerBack.php");
 ?>
 <main class="container">
-    <div class="row">
+    <div class="row my-3">
         <h3 class="text-warning">Admin</h3>
         <div class="col-4 form-group">
             <form action="" method="post">
@@ -32,7 +32,6 @@ include("../assets/inc/headerFront.php");
                 addslashes() rajoute un \ pour échapper les caractères spéciaux dans la saisie
                 */
 
-            var_dump($_POST);
             if (isset($_POST["submit"])) {
                 $nom = addslashes(trim(ucfirst($_POST["nom"])));
                 $prenom = addslashes(trim(ucfirst($_POST["prenom"])));
