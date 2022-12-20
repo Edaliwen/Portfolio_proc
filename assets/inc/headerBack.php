@@ -12,13 +12,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost/la_manu/sitePhpProcedural/admin/">Accueil administrateur</a>
+                            <a class="nav-link active" aria-current="page" href="http://localhost/la_manu/sitePhpProcedural/admin/accueilAdmin.php">Accueil administrateur</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost/la_manu/sitePhpProcedural/admin/listUsers.php">Gestion des utilisateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Gestion des compétences</a>
+                            <a class="nav-link" href="#">Gestion des compétences</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Gestion de la messagerie</a>
