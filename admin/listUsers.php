@@ -26,13 +26,14 @@
         <div class="row text-white text-center my-3">
             <h1>Liste des utilisateurs</h1>
         </div>
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped text-center">
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Prénom</th>
                 <th scope="col">Email</th>
                 <th scope="col">Rôle</th>
+                <th scope="col">Action</th>
             </tr>
             <?php
         foreach($users as $user){
@@ -46,6 +47,9 @@
             }else{
                 echo '<td>Utilisateur</td>';
             }
+            echo '<td>
+            <a class= "btn btn-outline-primary" type="button"  href="../admin/updateUser.php?id_user=' . $user["id_user"] . '"><i class="bi bi-pencil"></i></a>
+            <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash3"></i></button></td>';
             echo '</tr>';
         }
         ?>
