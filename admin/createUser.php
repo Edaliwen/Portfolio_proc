@@ -18,6 +18,10 @@ include("../assets/inc/headerFront.php");
                 <input type="text" class="form-control mt-3" name="prenom" placeholder="Votre prénom">
                 <input type="text" class="form-control mt-3" name="email" placeholder="Votre adresse email">
                 <input type="text" class="form-control mt-3" name="password" placeholder="Votre mot de passe">
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" value="" name="role"></input>
+                    <label class="form-check-label text-light" for="role">Rôle administrateur</label>
+                </div>
                 <button type="submit" name="submit" class="btn btn-outline-warning mt-3">Enregistrer</button>
             </form>
             <?php
@@ -37,7 +41,12 @@ include("../assets/inc/headerFront.php");
                 // encodage du mot de passe
                 $options = ['cost' => 12];
                 $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT, $options);
-                $role = 1;
+                if(isset($_POST["role"])){
+                    $role = true;
+                }else{
+                    $role = false;
+                }
+                
 
                 // 2 - Préparation de l'instruction SQL
                 $sql = " INSERT INTO table_user (
@@ -59,7 +68,13 @@ include("../assets/inc/headerFront.php");
                 mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
 
                 // 4 - Message
-                $_SESSION["message"] = "Administrateur $prenom $nom bien enregistré dans la base de données.";
+                if ($role == true){
+                    $_SESSION["message"] = "L'administrateur $prenom $nom est bien enregistré dans la base de données.";
+                    
+                }else{
+
+                    $_SESSION["message"] = "L'utilisateur $prenom $nom est bien enregistré dans la base de données.";
+                }
 
                 // 5 - Redirection vers la page d'accueil
                 header('Location: http://localhost/la_manu/sitePhpProcedural/index.php');

@@ -1,11 +1,11 @@
 <?php
     // Dans ce fichier on va créer la page de connexion à notre back-office avec le login et le mot de passe
-    include("../assets/inc/headBack.php");
+    include("../assets/inc/headFront.php");
 ?>
 <title>Login administrateur</title>
 <?php
     // Dans ce fichier on va créer la page de connexion à notre back-office avec le login et le mot de passe
-    include("../assets/inc/headerBack.php");
+    include("../assets/inc/headerFront.php");
 ?>
 <main>
     <div class="container mt-3">

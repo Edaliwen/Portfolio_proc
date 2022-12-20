@@ -15,7 +15,7 @@
                             <a class="nav-link active" aria-current="page" href="http://localhost/la_manu/sitePhpProcedural/admin/">Accueil administrateur</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Gestion des utilisateurs</a>
+                            <a class="nav-link" href="http://localhost/la_manu/sitePhpProcedural/admin/createUser.php">Gestion des utilisateurs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Gestion des compétences</a>
