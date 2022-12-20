@@ -1,9 +1,9 @@
 <?php
-    include("../assets/inc/headBack.php")
+    include("../assets/inc/headBack.php");
 ?>
 <title>Console d'administration</title>
 <?php
-    include("../assets/inc/headerBack.php")
+    include("../assets/inc/headerBack.php");
 ?>
 <main>
     <div class="container">
@@ -25,5 +25,5 @@
 </main>
 
 <?php
-    include("../assets/inc/footerBack.php")
+    include("../assets/inc/footerBack.php");
 ?>
