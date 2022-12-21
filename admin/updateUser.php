@@ -19,7 +19,9 @@ $sql = "SELECT `id_user`, `nom`, `prenom`, `email`, `password`, `role`
 $query = mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
 $user = mysqli_fetch_assoc($query);
 ?>
+
 <title>Modification de l'utilisateur</title>
+
 <?php
 include("../assets/inc/headerBack.php");
 ?>
