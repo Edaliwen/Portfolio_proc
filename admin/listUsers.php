@@ -57,8 +57,44 @@ $users = mysqli_fetch_all($query, MYSQLI_ASSOC);
                     echo '<td>Utilisateur</td>';
                 }
                 echo '<td>
-            <a class= "btn btn-outline-primary" type="button"  href="../admin/updateUser.php?id_user=' . $user["id_user"] . '"><i class="bi bi-pencil"></i></a>
-            <a class="btn btn-outline-danger" type="button" href="../admin/deleteUser.php?id_user=' . $user["id_user"] . '"><i class="bi bi-trash3"></i></a></td>';
+                        <a class= "btn btn-outline-primary" type="button"  href="../admin/updateUser.php?id_user=' . $user["id_user"] . '"><i class="bi bi-pencil"></i></a>
+
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header bg-warning">
+                                <h5 class="modal-title text-black" id="exampleModalToggleLabel">ATTENTION !!!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-black">
+                                L\'utilisateur ' . $user["prenom"] . ' ' . $user["nom"] . ' ainsi que ses données vont être définitivement supprimées !
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Vous êtes sûr ??</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header bg-danger">
+                                <h5 class="modal-title" id="exampleModalToggleLabel2">Sûr sûr ??</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-black">
+                                Sûr sûr sûr ???
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">On y réfléchit encore un peu ?</button>
+                                <a class="btn btn-danger" type="button" href="../admin/deleteUser.php?id_user=' . $user["id_user"] . '"><i class="bi bi-trash3"></i>Allez on supprime !</a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <a class="btn btn-outline-danger" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><i class="bi bi-trash3"></i></a>
+                    </td>';
                 echo '</tr>';
             }
             ?>
