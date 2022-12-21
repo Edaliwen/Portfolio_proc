@@ -1,11 +1,18 @@
 <?php
 /* Il faut créer un utilisateur avec le rôle admin dans la bdd pour avoir un administrateur du back-office.
-    Pour cela on créé un formulaire pour renseigner la bdd.
-    Au niveau du CRUD nous allons faire un create avec l'instruction ** SQL INSERT INTO **
-    */
+Pour cela on créé un formulaire pour renseigner la bdd.
+Au niveau du CRUD nous allons faire un create avec l'instruction ** SQL INSERT INTO **
+*/
 include("../assets/inc/headBack.php");
+
+if ($_SESSION["role"] == null || $_SESSION["role"] != 1) {
+    // on envoie un message d'alerte
+    $_SESSION["message"] = "Vous n'avez pas l'autorisation pour accéder à cette partie du site.";
+    header('Location: http://localhost/la_manu/sitePhpProcedural/index.php');
+    exit;
+}
 ?>
-<title>Création de l'utilisateur Admin</title>
+<title>Ajout d'utilisateurs</title>
 <?php
 include("../assets/inc/headerBack.php");
 ?>
@@ -29,8 +36,8 @@ include("../assets/inc/headerBack.php");
             require("../core/connexion.php");
             // 1 - Récupération des données et formatage
             /* une condition pour recupérer les données transmises par le formulaire et formater correctement le texte
-                addslashes() rajoute un \ pour échapper les caractères spéciaux dans la saisie
-                */
+            addslashes() rajoute un \ pour échapper les caractères spéciaux dans la saisie
+            */
 
             if (isset($_POST["submit"])) {
                 $nom = addslashes(trim(ucfirst($_POST["nom"])));
@@ -40,12 +47,12 @@ include("../assets/inc/headerBack.php");
                 // encodage du mot de passe
                 $options = ['cost' => 12];
                 $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT, $options);
-                if(isset($_POST["role"])){
+                if (isset($_POST["role"])) {
                     $role = true;
-                }else{
+                } else {
                     $role = false;
                 }
-                
+
 
                 // 2 - Préparation de l'instruction SQL
                 $sql = " INSERT INTO table_user (
@@ -67,16 +74,16 @@ include("../assets/inc/headerBack.php");
                 mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
 
                 // 4 - Message
-                if ($role == true){
+                if ($role == true) {
                     $_SESSION["message"] = "L'administrateur $prenom $nom est bien enregistré dans la base de données.";
-                    
-                }else{
+
+                } else {
 
                     $_SESSION["message"] = "L'utilisateur $prenom $nom est bien enregistré dans la base de données.";
                 }
 
                 // 5 - Redirection vers la page d'accueil
-                header('Location: http://localhost/la_manu/sitePhpProcedural/index.php');
+                header('Location: http://localhost/la_manu/sitePhpProcedural/admin/accueilAdmin.php');
             }
             ?>
         </div>
