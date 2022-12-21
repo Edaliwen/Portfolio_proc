@@ -42,6 +42,9 @@ CREATE TABLE `table_user` (
 
 INSERT INTO `table_user` (`id_user`, `nom`, `prenom`, `email`, `password`, `role`) VALUES
 (5, 'VALTAT', 'Amandine', 'amandine.valtat@gmail.com', '$2y$12$il0xfiAKGENWJYNF7Gd9cO03DYEoLwaNSlzOXHLV65lkfysb9PlIW', 1);
+(7, 'Maghalaes', 'Gythae', 'gythae@shaman.wow', '$2y$12$Na0jmfa4Rsont0pTSxAiBe54cRR1rpLrwpI42gDi9wZ1oXawvXytS', 0),
+(11, 'Chevalerie', 'Fitz', 'assass1@castlecerf.shh', '$2y$12$pkogLU54BKy8gHeqlJrVRuQxGMefxVtmXbPuJUnZV2a9M1sX8wJs.', 0);
+COMMIT;
 
 --
 -- Index pour les tables déchargées
