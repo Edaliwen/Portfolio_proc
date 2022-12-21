@@ -23,6 +23,15 @@ $users = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
 <main>
     <div class="container">
+        <div class="row justify-content-center">
+            <?php
+            if (isset($_SESSION["message"])) {
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">' . $_SESSION["message"] . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                // on efface la clé message une fois qu'elle a été affichée
+                unset($_SESSION["message"]);
+            }
+            ?>
+        </div>
         <div class="row text-white text-center my-3">
             <h1>Liste des utilisateurs</h1>
         </div>

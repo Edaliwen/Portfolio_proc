@@ -92,39 +92,39 @@ function updateUser()
     $nom = ucfirst(trim($_POST["nom"]));
     $prenom = ucfirst(trim($_POST["prenom"]));
     $email = strtolower(trim($_POST["email"]));
-    $password = trim($_POST["password"]);
+    $pass = trim($_POST["password"]);
     $role = $_POST["role"];
-
+    $id = $_POST["id_user"];
 
     // Validation des informations 
     if (strlen($nom) < 1 || strlen($nom) > 255) {
         $_SESSION["message"] = "Le nom doit avoir entre 1 et 255 caractères";
-        header("Location:../admin/updateUser.php?id=" . $_POST["id_user"]);
+        header("Location:../admin/updateUser.php?id_user=" . $_POST["id_user"]);
         exit;
     }
     if (strlen($prenom) < 1 || strlen($prenom) > 255) {
         $_SESSION["message"] = "Le prénom doit avoir entre 1 et 255 caractères";
-        header("Location:../admin/updateUser.php?id=" . $_POST["id_user"]);
+        header("Location:../admin/updateUser.php?id_user=" . $_POST["id_user"]);
         exit;
     }
     if (strlen($email) < 1 || strlen($email) > 255 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION["message"] = "L'email est invalide";
-        header("Location:../admin/updateUser.php?id=" . $_POST["id_user"]);
+        header("Location:../admin/updateUser.php?id_user=" . $_POST["id_user"]);
         exit;
     }
-    if (strlen($password) < 1) {
+    if (strlen($pass) < 1) {
         $_SESSION["message"] = "Le mot de passe doit avoir au moins 1 caractère";
-        header("Location:../admin/updateUser.php?id=" . $_POST["id_user"]);
+        header("Location:../admin/updateUser.php?id_user=" . $_POST["id_user"]);
         exit;
     }
-    if ($role != 1 && $role != 2) {
+    if ($role != 1 && $role != 0) {
         $_SESSION["message"] = "Le rôle est invalide";
-        header("Location:../admin/updateUser.php?id=" . $_POST["id_user"]);
+        header("Location:../admin/updateUser.php?id_user=" . $_POST["id_user"]);
         exit;
     }
     // Encodage du mot de passe
     $options = ['cost' => 12];
-    $password = password_hash($password, PASSWORD_DEFAULT, $options);
+    $pass = password_hash($pass, PASSWORD_DEFAULT, $options);
 
     // Les données sont validées, préparons-nous à les envoyer en base de données
     require("connexion.php");
@@ -135,9 +135,12 @@ function updateUser()
                 `prenom`    = '$prenom', 
                 `email`     = '$email', 
                 `role`      = $role, 
-                `password`  = '$password'
-            WHERE `id_user` = $id_User
+                `password`  = '$pass'
+            WHERE `id_user` = $id
         ";
+    echo '<pre>';
+    var_dump($sql);
+    echo '</pre>';
     // execution de la requète
     mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
     // message d'info
