@@ -136,7 +136,7 @@ function updateUser()
                 `email`     = '$email', 
                 `role`      = $role, 
                 `password`  = '$password'
-            WHERE `id_user` = $id
+            WHERE `id_user` = $id_User
         ";
     // execution de la requète
     mysqli_query($connexion, $sql) or die(mysqli_error($connexion));

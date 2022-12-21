@@ -66,7 +66,7 @@ include("../assets/inc/headerBack.php");
             <h2>Modifier l'utilisateur</h2>
             <div class="form-group">
                 <form method="POST" action="../core/userController.php">
-                    <input type="hidden" name="id_user" id="id_user" value="<?= $user["id_user"] ?>">
+                    <input type="hidden" name="id_user" id="id" value="<?= $user["id_user"] ?>">
                     <label for="nom">Nom :</label>
                     <input type="text" class="form-control mt-2" name="nom" id="nom" value="<?= $user["nom"] ?>">
                     <label for="prenom">Prénom :</label>
