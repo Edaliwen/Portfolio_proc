@@ -18,7 +18,7 @@
                             <a class="nav-link" href="http://localhost/la_manu/sitePhpProcedural/admin/listUsers.php">Gestion des utilisateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gestion des compétences</a>
+                            <a class="nav-link" href="http://localhost/la_manu/sitePhpProcedural/admin/createCompetence.php">Gestion des compétences</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Gestion de la messagerie</a>
