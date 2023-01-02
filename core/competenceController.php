@@ -11,20 +11,20 @@ if (isset($_POST["execute"])) {
 // on utilise un switch pour vérifier l'action
 switch ($action):
     // log-admin correspond à value="log-admin" dans l'input hidden du fichier admin/index.php
-    case "log-admin":
-        logAdmin();
+    case "create-competence":
+        createCompetence();
         break;
-    case "log-out":
-        logOut();
+    case "update-competence":
+        updateCompetence();
         break;
-    case "update-user":
-        updateUser();
+    case "delete-competence":
+        deleteCompetence();
         break;
 endswitch;
 
 // les différentes fonctions de notre controller 
 
-function logAdmin()
+/* function logAdmin()
 {
     // on a besoin de notre page connexion
     require("connexion.php");
@@ -148,5 +148,62 @@ function updateUser()
     // redirection vers la liste des utilisateur
     header('Location:../admin/listUsers.php');
     exit;
+} */
+
+function createCompetence(){
+ // on récupère le fichier de connexion
+             require("../core/connexion.php");
+            // 1 - Récupération des données et formatage
+            /* une condition pour recupérer les données transmises par le formulaire et formater correctement le texte
+            addslashes() rajoute un \ pour échapper les caractères spéciaux dans la saisie
+            */
+           
+
+            if (isset($_POST["submit"])) {
+                $titre = addslashes(trim(ucfirst($_POST["titre"])));
+                $prenom = addslashes(trim(ucfirst($_POST["prenom"])));
+                // strtolower permet de tout mettre en minuscules
+                $email = trim(strtolower($_POST["email"]));
+                // encodage du mot de passe
+                $options = ['cost' => 12];
+                $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT, $options);
+                if (isset($_POST["role"])) {
+                    $role = true;
+                } else {
+                    $role = false;
+                }
+
+
+                // 2 - Préparation de l'instruction SQL
+                $sql = " INSERT INTO table_user (
+                                                    nom,
+                                                    prenom, 
+                                                    email,
+                                                    password,
+                                                    role
+                                                )
+                            VALUE (
+                                        '$nom',
+                                        '$prenom',
+                                        '$email',
+                                        '$password',
+                                        '$role'
+                                    )";
+
+                // 3 - Exécution de la requête avec les paramètres de connexion
+                mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
+
+                // 4 - Message
+                if ($role == true) {
+                    $_SESSION["message"] = "L'administrateur $prenom $nom est bien enregistré dans la base de données.";
+
+                } else {
+
+                    $_SESSION["message"] = "L'utilisateur $prenom $nom est bien enregistré dans la base de données.";
+                }
+
+                // 5 - Redirection vers la page d'accueil
+                header('Location: http://localhost/la_manu/sitePhpProcedural/admin/accueilAdmin.php');
+            }
 }
 ?>

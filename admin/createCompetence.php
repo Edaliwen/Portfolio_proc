@@ -21,7 +21,7 @@ include("../assets/inc/headerBack.php");
         <h3 class="text-warning">Créer une compétence</h3>
         <div class="col-4 form-group">
             <form action="" method="post">
-            <input type="hidden" name="faire" value="create-competence"> 
+            <input type="hidden" name="execute" value="create-competence"> 
             <select class="form-select" name="type">
                 <option value="1" selected>Front-end</option>
                 <option value="2" selected>Back-end</option>
